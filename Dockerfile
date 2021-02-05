@@ -65,7 +65,7 @@ RUN apt update && apt upgrade -y && \
 RUN pip3 install --upgrade pip setuptools
 
 # Copy Python Requirements to /root/AstrakoBot
-RUN git clone -b shiken https://github.com/Astrako/AstrakoBot /root/AstrakoBot
+RUN git clone -b shiken https://github.com/Billl11/AstrakoBot /root/AstrakoBot
 WORKDIR /root/AstrakoBot
 
 #Copy config file to /root/AstrakoBot/AstrakoBot
