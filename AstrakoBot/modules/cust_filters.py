@@ -122,7 +122,7 @@ def filters(update, context):
     if not msg.reply_to_message and len(args) < 2:
         send_message(
             update.effective_message,
-            "Please provide keyboard keyword for this filter to reply with!",
+            "Harap berikan kata kunci keyboard untuk balasan filter ini!",
         )
         return
 
@@ -130,7 +130,7 @@ def filters(update, context):
         if len(args) < 2:
             send_message(
                 update.effective_message,
-                "Please provide keyword for this filter to reply with!",
+                "Berikan kata kunci untuk membalas dengan filter ini!",
             )
             return
         else:
@@ -258,7 +258,7 @@ def stop_filter(update, context):
             sql.remove_filter(chat_id, args[1])
             send_message(
                 update.effective_message,
-                "Okay, I'll stop replying to that filter in *{}*.".format(chat_name),
+                "Oke, saya akan berhenti membalas filter itu *{}*.".format(chat_name),
                 parse_mode=telegram.ParseMode.MARKDOWN,
             )
             raise DispatcherHandlerStop
@@ -617,12 +617,12 @@ __help__ = """
  • `/filters`*:* List all active filters saved in the chat.
 
 *Admin only:*
- • `/filter <keyword> <reply message>`*:* Add a filter to this chat. The bot will now reply that message whenever 'keyword'\
-is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
-keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
+ • `/filter <keyword> <reply message>`*:* Tambahkan filter ke obrolan ini. Bot sekarang akan membalas pesan itu setiap kali 'kata kunci' \
+disebutkan. Jika Anda membalas stiker dengan kata kunci, bot akan membalas dengan stiker itu. CATATAN: semua filter \
+kata kunci menggunakan huruf kecil. Jika Anda ingin kata kunci Anda menjadi kalimat, gunakan tanda kutip. misal: / filter "hey there" Bagaimana kabarmu \
 doin?
- Separate diff replies by `%%%` to get random replies
- *Example:* 
+ Pisahkan diff dibalas dengan `%%%` untuk mendapatkan balasan acak
+ *Contoh:* 
  `/filter "filtername"
  Reply 1
  %%%
