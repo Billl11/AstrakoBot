@@ -31,7 +31,7 @@ def afk(update: Update, context: CallbackContext):
         reason = args[1]
         if len(reason) > 100:
             reason = reason[:100]
-            notice = "\nYour afk reason was shortened to 100 characters."
+            notice = "\nYour afk sibuk was shortened to 100 characters."
     else:
         reason = ""
 
@@ -58,13 +58,13 @@ def no_longer_afk(update: Update, context: CallbackContext):
         firstname = update.effective_user.first_name
         try:
             options = [
-                "{} Saya Kembali!",
-                "{} Ada Yang kangen?!",
+                "{} Telah Kembali!",
+                "Ada Yang kangen {}?",
                 "{} sekarang waktunya nimbrung!",
-                "{} Saya disini menantimu:)!",
+                "{} disini menantimu:)!",
                 "{} Telah ONLINE!",
                 "{} welcome back ibab !",
-                "Menunggumu {}",
+                "{} Menunggumu ",
                 "Where is {}?\nAbis apa hayo!",
             ]
             chosen_option = random.choice(options)
