@@ -44,14 +44,14 @@ def promote(update: Update, context: CallbackContext) -> str:
         not (promoter.can_promote_members or promoter.status == "creator")
         and user.id not in DRAGONS
     ):
-        message.reply_text("You don't have the necessary rights to do that!")
+        message.reply_text("Anda tidak memiliki hak yang diperlukan untuk melakukan itu!")
         return
 
     user_id = extract_user(message, args)
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "Anda sepertinya tidak merujuk ke pengguna atau ID yang ditentukan salah .."
         )
         return
 
@@ -61,11 +61,11 @@ def promote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status == "administrator" or user_member.status == "creator":
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("Bagaimana maksud saya untuk mempromosikan seseorang yang sudah menjadi admin?")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("Saya tidak dapat mempromosikan diri saya sendiri! Dapatkan admin untuk melakukannya untuk saya.")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -86,9 +86,9 @@ def promote(update: Update, context: CallbackContext) -> str:
         )
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
-            message.reply_text("I can't promote someone who isn't in the group.")
+            message.reply_text("Saya tidak dapat mempromosikan seseorang yang tidak ada di grup.")
         else:
-            message.reply_text("An error occured while promoting.")
+            message.reply_text("Terjadi kesalahan saat mempromosikan.")
         return
 
     bot.sendMessage(
@@ -343,11 +343,11 @@ def invite(update: Update, context: CallbackContext):
             update.effective_message.reply_text(invitelink)
         else:
             update.effective_message.reply_text(
-                "I don't have access to the invite link, try changing my permissions!"
+                "Saya tidak memiliki akses ke tautan undangan, coba ubah izin saya!"
             )
     else:
         update.effective_message.reply_text(
-            "I can only give you invite links for supergroups and channels, sorry!"
+            "Saya hanya dapat memberi Anda tautan undangan untuk supergrup dan saluran, maaf!"
         )
 
 
