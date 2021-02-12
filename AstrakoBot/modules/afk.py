@@ -66,6 +66,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
                 "{} welcome back ibab !",
                 "{} tetap semangat ",
                 "Darimana lu {}?\nAbis apa hayo ?",
+                "Ramein grupnya yuk!",
             ]
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
@@ -132,7 +133,7 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             res = "{} Sedang OFFLINE".format(fst_name)
             update.effective_message.reply_text(res)
         else:
-            res = "{} Sedang OFFLINE.\nKarena: <code>{}</code>".format(
+            res = "{} Sedang OFFLINE.\nAlasan: <code>{}</code>".format(
                 html.escape(fst_name), html.escape(user.reason)
             )
             update.effective_message.reply_text(res, parse_mode="html")
